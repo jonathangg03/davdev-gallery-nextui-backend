@@ -1,8 +1,18 @@
 const express = require('express')
 const multer = require('multer')
 const path = require('path')
+const cloudinary = require('cloudinary')
 const Image = require('../model/image')
+const {
+  cloudinary: { cloudinaryName, cloudinaryKey, cloudinarySecret }
+} = require('../config')
 const router = express.Router()
+
+cloudinary.config({
+  cloud_name: cloudinaryName,
+  api_key: cloudinaryKey,
+  api_secret: cloudinarySecret
+})
 
 const storageOptions = multer.diskStorage({
   destination: `uploads`,
