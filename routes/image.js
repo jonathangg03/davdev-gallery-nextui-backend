@@ -36,9 +36,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', uploadStorage.single('uploadImage'), async (req, res) => {
-  const cloudUpload = await cloudinary.uploader.upload(
-    `${__dirname}/../uploads/${req.file.filename}`
-  )
+  const uploadDir = `${__dirname}/../uploads/${req.file.filename}`
+  const cloudUpload = await cloudinary.uploader.upload(uploadDir)
 
   const newImage = new Image({
     title: req.body.title,
@@ -50,7 +49,13 @@ router.post('/', uploadStorage.single('uploadImage'), async (req, res) => {
   newImage
     .save()
     .then((data) => {
-      fs.unlink('')
+      fs.unlink(uploadDir, (err) => {
+        if (err) {
+          console.log(error)
+        } else {
+          console.log('Imagen eliminada del servidor')
+        }
+      })
       res.json(data)
     })
     .catch((err) => {
