@@ -35,6 +35,17 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:id', (req, res) => {
+  Image.findById(req.params.id)
+    .then((data) => {
+      res.json(data)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.send(err.message)
+    })
+})
+
 router.post('/', uploadStorage.single('uploadImage'), async (req, res) => {
   const uploadDir = `${__dirname}/../uploads/${req.file.filename}`
   const cloudUpload = await cloudinary.uploader.upload(uploadDir)
