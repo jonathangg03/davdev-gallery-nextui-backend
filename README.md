@@ -3,7 +3,7 @@
 Una aplicación web de galería, donde subes una foto, y puedes ver todas las
 fotos que se han subido al sitio. Las imagenes se guardan en Cloudinary.
 
-[![Galería](https://dav-dev.com/assets/projects/gallery.jpg 'Galería')](https://dav-dev.com/assets/projects/gallery.jpg 'Galería')
+[![Galería](https://res.cloudinary.com/dklpyhteh/image/upload/v1661742489/Portfolio/gallery_cvrhcz.png 'Galería')](https://res.cloudinary.com/dklpyhteh/image/upload/v1661742489/Portfolio/gallery_cvrhcz.png 'Galería')
 
 ## Frontend
 
